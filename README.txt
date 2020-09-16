@@ -1,24 +1,29 @@
-Elizabeth Bauch - Section B
-I used cplusplus.com to remind me of how to do some things with vectors, files, etc. and I also read piazza posts to
-understand the assignment requirements. I love piazza!
+1. Elizabeth Bauch - Section B
+I used Piazza, cplusplus.com, and the textbook to help me with this assignment to understand how stacks and queues work.
 
-Test 1 for input file explanation:
-I test to see if each of the category id's are not between 1 and 4 inclusive in the load function.
-I used chars to do this test like so:
-else if ((category_id < '1') || (category_id > '4'))
-which can be done because chars are technically integers so it tests if the category id is less than 31 or greater
- than 34 (according to the ASCII chart). If they are not between 1 and 4 inclusive, then it prints out:
-"Input file \"filename\" appears to not be a proper file!" and returns false.
+2. Challenges:
+Some challenges I encountered was understanding the difference between a stack and a queue. At first, I thought that
+using a queue meant I would be solving the maze backwards, and then I realized that it could start from the same place,
+but that it evaluates the points differently. Meaning, for the queue it evaluates the points immediately, and finds
+valid points next to the current point and adds them on to the queue, so it goes back and forth between different possible
+paths because it adds right, up, down, left (in my code) immediately. Versus, in the stack, if it finds a path that works,
+going up for example, it keeps going in that direction, and then once it can't keep going (like in 8-example.txt), then
+it will go back to the right direction because that point was added earlier in the stack and keep going from there.
+(I'm sorry if this explanation is a bit confusing, but I want to be able to refer to it later)
+Another challenge I encountered is that I figured out how to use a stack, and then when I went to use a queue I realized
+adding some other functions like _nextPoint and _pushPoint would be useful. This was because depending on whether I
+was using a stack or a queue the next point would be the top of the stack or the front of the queue, and I would
+either be pushing a point onto the stack or the queue.
 
-Test 2 for input file explanation:
-This tests if the yes and no answers match up according to the 4 different categories (Introvert and Extrovert, Sensing
-and Intuition, etc.)
-This is done by testing if one of the answer choices is I, that the other answer choice is E, or vice versa. And I do the
-same test for N and S, F and T, and P and J which is also done in the load function, but it also uses a function I
-created called checkAnswer. checkAnswer works by using a switch statement so that if yes_answer is 'I', then return b=='E'.
-This is so that even if the yes_answer is 'I', if the no_answer is not 'E', then it would still return false, because
-that would mean at least one of the answers for the category was incorrect for the question. Each case in the switch statement
-does the same for the other 3 categories. Then in the load function I use this else if statement:
-else if (!checkAnswer(ans1, ans2) && !checkAnswer(ans2, ans1))
-which says if both of these scenarios return false, then it is not a valid file, but if one returns true then it is.
-That way the order of I or E being in the yes or no answer would not matter.
+3. Likes/Dislikes:
+I liked this assignment because it was a very visual assignment with the mazes which I think was useful for learning
+how stacks and queues can be used. I also liked this problem was pretty complex but not too complex, and so it was
+somewhat difficult to logically think through in order to write the code, but it was a good experience seeing a problem
+that is a lot easier to deal with by writing a program that solves it for you!
+I disliked that some of the instructions were a bit vague. For example, I realized
+that for the 8-example.txt file if I evaluate the up point first and then the right point, it causes my @ signs to
+move in the same direction as the example for the assignment. Does it matter if the @ signs move in the same direction
+(evaluates the points in the same order), or does it only matter that it reaches the goal? Maybe some specifications
+about this would be useful.
+
+4. I spent about 20 hours working on this assignment.
